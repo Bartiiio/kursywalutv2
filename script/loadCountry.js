@@ -1,4 +1,5 @@
-import { changeview, controller } from "../script/main.js";
+import { changeview } from "../script/main.js";
+import { controller } from "../script/main.js";
 import { signal } from "../script/main.js";
 
 class RenderCountry {
@@ -65,13 +66,17 @@ class RenderCountry {
             this._countryImg.src = imgElement;
 
             this._countryName.textContent = h3Element;
+            inputSearch.value = "";
+            const countylistItems = document.querySelectorAll("section");
+            countylistItems.forEach((element) => {
+               element.style.display = "block";
+            });
+            window.removeEventListener("click", functionclick);
             changeview();
             window.scrollTo({ top: 0, behavior: "instant" });
-            // window.removeEventListener("click", functionclick);
-            // controller.abort();
          }
       };
-      window.addEventListener("click", functionclick, { signal });
+      window.addEventListener("click", functionclick), { signal };
    };
 
    _renderAllCountries = async (data) => {
@@ -99,7 +104,7 @@ class RenderCountry {
    };
 
    _initload() {
-      window.addEventListener("load", this._loadAllCountry);
+      window.addEventListener("load", this._loadAllCountry, { once: true });
    }
 }
 

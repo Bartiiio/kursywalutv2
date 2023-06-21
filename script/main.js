@@ -28,11 +28,10 @@ btnChange.addEventListener("click", () => {
 
       const countylistItems = document.querySelectorAll("section");
 
-      const searchText = inputSearch.value.trim().toLowerCase();
+      const searchText = inputSearch.value.toLowerCase();
 
       countylistItems.forEach((element) => {
          const h3 = element.querySelector("h3").textContent.toLowerCase();
-
          if (h3.includes(searchText)) {
             element.style.display = "block";
          } else {
