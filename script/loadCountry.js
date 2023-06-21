@@ -1,3 +1,5 @@
+import { changeview } from "../script/main.js";
+
 class RenderCountry {
    _countriesContainer = document.querySelector(".country__list");
    _countryImg = document.querySelector(".country__img");
@@ -37,6 +39,37 @@ class RenderCountry {
       this._countryRow.innerHTML = `<p class="country__row" id="row2"><span>💰</span>${
          Object.keys(data.currencies)[0]
       }</p>`;
+   };
+
+   _renderChangedCountry = () => {
+      window.addEventListener("click", (e) => {
+         console.log("click");
+         const section = e.target.closest("section");
+         if (section) {
+            const imgElement = section.querySelector("img").src;
+
+            const h3Element = section.querySelector("h3").textContent;
+
+            const paragraphs = section.querySelectorAll("p");
+
+            if (paragraphs.length > 2) {
+               const secondParagraph = paragraphs[0];
+               const language = secondParagraph.textContent;
+               this._countryRowId.innerHTML = `<p class="country__row" id="row1">${language}</p>`;
+            }
+
+            if (paragraphs.length > 3) {
+               const thirdParagraph = paragraphs[1];
+               const money = thirdParagraph.textContent;
+               this._countryRow.innerHTML = `<p class="country__row" id="row2">${money}</p>`;
+            }
+            this._countryImg.src = imgElement;
+
+            this._countryName.textContent = h3Element;
+
+            changeview();
+         }
+      });
    };
 
    _renderAllCountries = async (data) => {
