@@ -1,4 +1,5 @@
-import { changeview } from "../script/main.js";
+import { changeview, controller } from "../script/main.js";
+import { signal } from "../script/main.js";
 
 class RenderCountry {
    _countriesContainer = document.querySelector(".country__list");
@@ -23,7 +24,6 @@ class RenderCountry {
               <p class="country__row"><span>🗣️</span>${language}</p>
               <p class="country__row"><span>💰</span>${keycurrencies}</p>
               <p class="country__row"><span>💰</span>${curriencies}</p>
-              <p class="country__row"><span>🪙</span>Value</p>
           </div>
       </section>
       `;
@@ -42,8 +42,7 @@ class RenderCountry {
    };
 
    _renderChangedCountry = () => {
-      window.addEventListener("click", (e) => {
-         console.log("click");
+      const functionclick = (e) => {
          const section = e.target.closest("section");
          if (section) {
             const imgElement = section.querySelector("img").src;
@@ -52,13 +51,13 @@ class RenderCountry {
 
             const paragraphs = section.querySelectorAll("p");
 
-            if (paragraphs.length > 2) {
+            if (paragraphs.length > 1) {
                const secondParagraph = paragraphs[0];
                const language = secondParagraph.textContent;
                this._countryRowId.innerHTML = `<p class="country__row" id="row1">${language}</p>`;
             }
 
-            if (paragraphs.length > 3) {
+            if (paragraphs.length > 2) {
                const thirdParagraph = paragraphs[1];
                const money = thirdParagraph.textContent;
                this._countryRow.innerHTML = `<p class="country__row" id="row2">${money}</p>`;
@@ -66,10 +65,13 @@ class RenderCountry {
             this._countryImg.src = imgElement;
 
             this._countryName.textContent = h3Element;
-
             changeview();
+            window.scrollTo({ top: 0, behavior: "instant" });
+            // window.removeEventListener("click", functionclick);
+            // controller.abort();
          }
-      });
+      };
+      window.addEventListener("click", functionclick, { signal });
    };
 
    _renderAllCountries = async (data) => {

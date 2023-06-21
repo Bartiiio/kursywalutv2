@@ -42,6 +42,8 @@ class addCountry {
          }
       });
    }
+
+   _filterCountry() {}
 }
 
 export default new addCountry();
