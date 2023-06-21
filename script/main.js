@@ -1,5 +1,4 @@
 import rendercountry from "../script/loadCountry.js";
-import addCountry from "../script/addCountry.js";
 const btnChange = document.querySelector(".btnChange");
 let inputSearch;
 const closeWindow = document.querySelector(".closeWindow");
