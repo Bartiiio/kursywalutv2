@@ -53,6 +53,11 @@ class addCountryToDashboard {
                 </div>
             </section>
             `;
+            inputSearch.value = "";
+            const countylistItems = document.querySelectorAll("section");
+            countylistItems.forEach((element) => {
+               element.style.display = "block";
+            });
             this._countriesContainer.insertAdjacentHTML("beforeend", html);
             changeview();
             turnoffview();
