@@ -1,5 +1,6 @@
 import { changeview } from "../script/main.js";
 import { closeWindow } from "../script/main.js";
+import { turnoffview } from "../script/main.js";
 
 class RenderCountry {
    _countriesContainer = document.querySelector(".country__list");
@@ -47,6 +48,7 @@ class RenderCountry {
       const exitButtonClick = () => {
          closeWindow.removeEventListener("click", exitButtonClick);
          window.removeEventListener("click", functionclick);
+         turnoffview();
          changeview();
       };
 
@@ -82,6 +84,7 @@ class RenderCountry {
 
             window.removeEventListener("click", functionclick);
 
+            turnoffview();
             changeview();
 
             window.scrollTo({ top: 0, behavior: "instant" });

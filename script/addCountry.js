@@ -1,5 +1,6 @@
 import { changeview } from "../script/main.js";
 import { closeWindow } from "../script/main.js";
+import { turnoffview } from "../script/main.js";
 
 class addCountryToDashboard {
    _countriesContainer = document.querySelector(".countries");
@@ -8,6 +9,7 @@ class addCountryToDashboard {
       const exitButtonClick = () => {
          closeWindow.removeEventListener("click", exitButtonClick);
          window.removeEventListener("click", countryadd);
+         turnoffview();
          changeview();
       };
 
@@ -53,6 +55,7 @@ class addCountryToDashboard {
             `;
             this._countriesContainer.insertAdjacentHTML("beforeend", html);
             changeview();
+            turnoffview();
          }
       };
 

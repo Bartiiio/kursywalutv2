@@ -3,6 +3,7 @@ import addCountryToDashborad from "../script/addCountry.js";
 
 const btnChange = document.querySelector(".btnChange");
 const btnAddCountry = document.querySelector(".add__country");
+
 let btnDelete;
 let inputSearch;
 export let closeWindow;
@@ -17,6 +18,12 @@ export const changeview = function () {
    const selectCountryView = document.querySelector(".select__country");
    selectCountryView.style.display =
       selectCountryView.style.display === "none" ? "block" : "none";
+};
+
+export const turnoffview = function () {
+   const countries = document.querySelector(".countries");
+   countries.style.visibility =
+      countries.style.visibility === "hidden" ? "visible" : "hidden";
 };
 
 const inputSearchFn = () => {
@@ -44,6 +51,7 @@ const inputSearchFn = () => {
 
 btnChange.addEventListener("click", () => {
    changeview();
+   turnoffview();
    inputSearchFn();
 
    rendercountry._renderChangedCountry();
@@ -51,6 +59,7 @@ btnChange.addEventListener("click", () => {
 
 btnAddCountry.addEventListener("click", () => {
    changeview();
+   turnoffview();
    inputSearchFn();
    addCountryToDashborad._addCountryEvent();
 });
