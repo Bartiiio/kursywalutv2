@@ -1,6 +1,5 @@
 import { changeview } from "../script/main.js";
-import { controller } from "../script/main.js";
-import { signal } from "../script/main.js";
+import { closeWindow } from "../script/main.js";
 
 class RenderCountry {
    _countriesContainer = document.querySelector(".country__list");
@@ -43,13 +42,18 @@ class RenderCountry {
    };
 
    _renderChangedCountry = () => {
+      const exitButtonClick = () => {
+         console.log("exitbutton");
+         closeWindow.removeEventListener("click", exitButtonClick);
+         window.removeEventListener("click", functionclick);
+         changeview();
+      };
+
       const functionclick = (e) => {
          const section = e.target.closest("section");
          if (section) {
             const imgElement = section.querySelector("img").src;
-
             const h3Element = section.querySelector("h3").textContent;
-
             const paragraphs = section.querySelectorAll("p");
 
             if (paragraphs.length > 1) {
@@ -63,20 +67,28 @@ class RenderCountry {
                const money = thirdParagraph.textContent;
                this._countryRow.innerHTML = `<p class="country__row" id="row2">${money}</p>`;
             }
-            this._countryImg.src = imgElement;
 
+            this._countryImg.src = imgElement;
             this._countryName.textContent = h3Element;
             inputSearch.value = "";
+
             const countylistItems = document.querySelectorAll("section");
             countylistItems.forEach((element) => {
                element.style.display = "block";
             });
+
+            closeWindow.removeEventListener("click", exitButtonClick);
+
             window.removeEventListener("click", functionclick);
+
             changeview();
+
             window.scrollTo({ top: 0, behavior: "instant" });
          }
       };
-      window.addEventListener("click", functionclick), { signal };
+
+      window.addEventListener("click", functionclick);
+      closeWindow.addEventListener("click", exitButtonClick);
    };
 
    _renderAllCountries = async (data) => {
