@@ -267,6 +267,7 @@
          }
          & .country__region {
             font-size: 1.5rem;
+            margin-bottom: 1rem;
          }
 
          & .country__row:not(:last-child) {
@@ -281,7 +282,7 @@
          & .country__row {
             font-size: 2rem;
          }
-         & .country__delete {
+         & .country_delete {
             display: inline-block;
             font-size: 2.5rem;
             width: 20rem;
@@ -293,6 +294,7 @@
             justify-content: center;
             align-items: center;
             font-weight: 300;
+            margin-top: 3rem;
             cursor: pointer;
             &:hover {
                font-weight: 600;

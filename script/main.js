@@ -1,9 +1,11 @@
 import rendercountry from "../script/loadCountry.js";
+import addCountryToDashborad from "../script/addCountry.js";
+
 const btnChange = document.querySelector(".btnChange");
+const btnAddCountry = document.querySelector(".add__country");
+let btnDelete;
 let inputSearch;
-const closeWindow = document.querySelector(".closeWindow");
-export const controller = new AbortController();
-export const { signal } = controller;
+export let closeWindow;
 
 const init = function () {
    rendercountry._initload();
@@ -17,11 +19,10 @@ export const changeview = function () {
       selectCountryView.style.display === "none" ? "block" : "none";
 };
 
-btnChange.addEventListener("click", () => {
-   changeview();
+const inputSearchFn = () => {
    const inputSearch = document.getElementById("inputSearch");
-   rendercountry._renderChangedCountry();
 
+   closeWindow = document.querySelector(".closeWindow");
    inputSearch.addEventListener("input", () => {
       const countryList = document.querySelector(".country__list");
 
@@ -31,6 +32,7 @@ btnChange.addEventListener("click", () => {
 
       countylistItems.forEach((element) => {
          const h3 = element.querySelector("h3").textContent.toLowerCase();
+
          if (h3.includes(searchText)) {
             element.style.display = "block";
          } else {
@@ -38,9 +40,27 @@ btnChange.addEventListener("click", () => {
          }
       });
    });
+};
+
+btnChange.addEventListener("click", () => {
+   changeview();
+   inputSearchFn();
+
+   rendercountry._renderChangedCountry();
 });
 
-closeWindow.addEventListener("click", () => {
-   controller.abort();
+btnAddCountry.addEventListener("click", () => {
    changeview();
+   inputSearchFn();
+   addCountryToDashborad._addCountryEvent();
+});
+
+window.addEventListener("click", (e) => {
+   const targetElement = e.target;
+   if (targetElement.classList.contains("country_delete")) {
+      const section = e.target.closest("section");
+      if (section) {
+         section.remove();
+      }
+   }
 });

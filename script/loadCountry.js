@@ -12,7 +12,9 @@ class RenderCountry {
       const flag = data.flags.png;
       const name = Object.values(data.name)[0];
       const region = data.region;
+      if (data.languages === undefined) return;
       const language = Object.values(data.languages)[0];
+      if (data.currencies === undefined) return;
       const keycurrencies = Object.keys(data.currencies)[0];
       const curriencies = Object.values(data.currencies)[0].name;
       const html = `
@@ -43,7 +45,6 @@ class RenderCountry {
 
    _renderChangedCountry = () => {
       const exitButtonClick = () => {
-         console.log("exitbutton");
          closeWindow.removeEventListener("click", exitButtonClick);
          window.removeEventListener("click", functionclick);
          changeview();
