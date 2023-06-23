@@ -1,5 +1,6 @@
 import rendercountry from "../script/loadCountry.js";
 import addCountryToDashborad from "../script/addCountry.js";
+import apiNbp from "../script/nbpApi.js";
 
 const btnChange = document.querySelector(".btnChange");
 const btnAddCountry = document.querySelector(".add__country");
@@ -7,9 +8,11 @@ const btnAddCountry = document.querySelector(".add__country");
 let btnDelete;
 let inputSearch;
 export let closeWindow;
+export let valuesArr;
 
-const init = function () {
+const init = async function () {
    rendercountry._initload();
+   valuesArr = await apiNbp._moneyValue();
 };
 
 init();
