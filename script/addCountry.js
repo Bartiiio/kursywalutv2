@@ -1,6 +1,7 @@
 import { changeview } from "../script/main.js";
 import { closeWindow } from "../script/main.js";
 import { turnoffview } from "../script/main.js";
+import { valuesArr } from "../script/main.js";
 
 class addCountryToDashboard {
    _countriesContainer = document.querySelector(".countries");
@@ -25,6 +26,7 @@ class addCountryToDashboard {
             let language;
             let money;
             let moneyName;
+            let value;
 
             if (paragraphs.length > 1) {
                const secondParagraph = paragraphs[0];
@@ -39,6 +41,28 @@ class addCountryToDashboard {
                const lastParagraph = paragraphs[2];
                moneyName = lastParagraph.textContent;
             }
+
+            const slic = money.slice(2);
+            let found = false;
+
+            valuesArr.forEach((element) => {
+               if (element.code === slic || slic == "PLN") {
+                  found = true;
+                  if (element.mid) {
+                     value = element.mid;
+                  } else if (slic === "PLN") {
+                     value = 1;
+                  } else if (!element.mid && element.bid) {
+                     value = element.bid;
+                  } else {
+                     value = "Brak danych";
+                  }
+               }
+               if (found) {
+                  return;
+               }
+            });
+
             const html = `
             <section>
                 <img class="country__img" src="${imgElement}" />
@@ -48,7 +72,7 @@ class addCountryToDashboard {
                     <p class="country__row">${language}</p>
                     <p class="country__row">${money}</p>
                     <p class="country__row">${moneyName}</p>
-                    <p class="country__row">💲Value:</p>
+                    <p class="country__row">💲Value: ${value}</p>
                     <p class="country_delete" id="deleteCountry"><span></span>Usuń!</p>
                 </div>
             </section>

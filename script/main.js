@@ -13,6 +13,7 @@ export let valuesArr;
 const init = async function () {
    rendercountry._initload();
    valuesArr = await apiNbp._moneyValue();
+   console.log(valuesArr);
 };
 
 init();
