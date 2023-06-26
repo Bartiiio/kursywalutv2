@@ -4,16 +4,18 @@ import apiNbp from "../script/nbpApi.js";
 
 const btnChange = document.querySelector(".btnChange");
 const btnAddCountry = document.querySelector(".add__country");
+const inputValue = document.getElementById("input");
 
 let btnDelete;
 let inputSearch;
+export let inputNumber = 1;
 export let closeWindow;
 export let valuesArr;
+export let selectedCountry;
 
 const init = async function () {
    rendercountry._initload();
    valuesArr = await apiNbp._moneyValue();
-   console.log(valuesArr);
 };
 
 init();
@@ -62,6 +64,7 @@ btnChange.addEventListener("click", () => {
 });
 
 btnAddCountry.addEventListener("click", () => {
+   selectedCountry = document.getElementById("row2").textContent;
    changeview();
    turnoffview();
    inputSearchFn();
@@ -76,4 +79,8 @@ window.addEventListener("click", (e) => {
          section.remove();
       }
    }
+});
+
+inputValue.addEventListener("input", () => {
+   inputNumber = Number(inputValue.value);
 });
