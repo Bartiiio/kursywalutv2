@@ -1,10 +1,11 @@
 import rendercountry from "../script/loadCountry.js";
 import addCountryToDashborad from "../script/addCountry.js";
 import apiNbp from "../script/nbpApi.js";
+import InputChangeValue from "../script/InputChangeValue.js";
 
 const btnChange = document.querySelector(".btnChange");
 const btnAddCountry = document.querySelector(".add__country");
-const inputValue = document.getElementById("input");
+export const inputValue = document.getElementById("input");
 
 let btnDelete;
 let inputSearch;
@@ -65,6 +66,7 @@ btnChange.addEventListener("click", () => {
 
 btnAddCountry.addEventListener("click", () => {
    selectedCountry = document.getElementById("row2").textContent;
+   inputNumber = inputValue.value;
    changeview();
    turnoffview();
    inputSearchFn();
@@ -82,5 +84,6 @@ window.addEventListener("click", (e) => {
 });
 
 inputValue.addEventListener("input", () => {
-   inputNumber = Number(inputValue.value);
+   selectedCountry = document.getElementById("row2").textContent;
+   InputChangeValue._inputLisenner();
 });

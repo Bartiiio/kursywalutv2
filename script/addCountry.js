@@ -16,10 +16,11 @@ class addCountryToDashboard {
          changeview();
       };
 
-      const countryadd = (e) => {
+      const countryadd = async (e) => {
          const section = e.target.closest("section");
          if (section) {
             window.removeEventListener("click", countryadd);
+            closeWindow.removeEventListener("click", exitButtonClick);
 
             const imgElement = section.querySelector("img").src;
             const h3Element = section.querySelector("h3").textContent;
@@ -28,9 +29,9 @@ class addCountryToDashboard {
             let language;
             let money;
             let moneyName;
-            let value;
-            let selectedCountryValue;
-            let calcValue;
+            let value = 0;
+            let selectedCountryValue = 0;
+            let calcValue = 0;
 
             if (paragraphs.length > 1) {
                const secondParagraph = paragraphs[0];
@@ -46,56 +47,44 @@ class addCountryToDashboard {
                moneyName = lastParagraph.textContent;
             }
 
-            const slic = money.slice(2);
-            const slic2 = selectedCountry.slice(2);
-            let found = false;
-            let found2 = false;
+            const addingCountry = money.slice(2);
+            const mainCountry = selectedCountry.slice(2);
+            let foundMain = false;
+            let foundCountry = false;
 
             valuesArr.forEach((element) => {
-               if (found) {
+               if (foundMain) {
                   return;
                }
-               if (element.code === slic || slic == "PLN") {
-                  console.log(slic);
-                  found = true;
-                  if (element.mid) {
-                     value = element.mid;
-                  } else if (slic === "PLN") {
-                     value = 1;
-                  } else if (!element.mid && element.bid) {
-                     value = element.bid;
-                  } else {
-                     value = undefined;
-                  }
+               if (mainCountry === "PLN") {
+                  value = 1;
+                  foundMain = true;
+               } else if (element.code === mainCountry) {
+                  value = element.mid;
+                  foundMain = true;
                }
             });
 
             valuesArr.forEach((element) => {
-               if (found2) {
+               if (foundCountry) {
                   return;
                }
-               if (element.code === slic2 || slic2 === "PLN") {
-                  console.log(slic2);
-                  found2 = true;
-                  if (slic2 === "PLN") {
-                     selectedCountryValue = 1;
-                  } else if (element.mid) {
-                     selectedCountryValue = element.mid / value;
-                  } else if (!element.mid && element.bid) {
-                     selectedCountryValue = element.bid / value;
-                  } else {
-                     selectedCountryValue = undefined;
-                  }
+               if (addingCountry === "PLN") {
+                  selectedCountryValue = 1;
+                  foundCountry = true;
+               } else if (addingCountry === element.code) {
+                  selectedCountryValue = element.mid;
+                  foundCountry = true;
                }
             });
 
-            if (slic2 === "PLN") {
-               calcValue = (
-                  (selectedCountryValue / value) *
-                  inputNumber
-               ).toFixed(2);
+            if (mainCountry === "PLN") {
+               calcValue = (inputNumber / selectedCountryValue).toFixed(2);
             } else {
-               calcValue = (selectedCountryValue * inputNumber).toFixed(2);
+               calcValue = (
+                  (inputNumber * value) /
+                  selectedCountryValue
+               ).toFixed(2);
             }
 
             const html = `
