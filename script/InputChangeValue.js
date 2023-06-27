@@ -37,8 +37,6 @@ class InputChange {
             }
          });
 
-         console.log(value);
-
          valuesArr.forEach((element) => {
             if (foundCountry) {
                return;

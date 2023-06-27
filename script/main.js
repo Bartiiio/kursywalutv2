@@ -57,10 +57,11 @@ const inputSearchFn = () => {
 };
 
 btnChange.addEventListener("click", () => {
+   selectedCountry = document.getElementById("row2").textContent;
+   inputNumber = inputValue.value;
    changeview();
    turnoffview();
    inputSearchFn();
-
    rendercountry._renderChangedCountry();
 });
 

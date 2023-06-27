@@ -1,6 +1,8 @@
 import { changeview } from "../script/main.js";
 import { closeWindow } from "../script/main.js";
 import { turnoffview } from "../script/main.js";
+import { inputValue } from "../script/main.js";
+import { valuesArr } from "../script/main.js";
 
 class RenderCountry {
    _countriesContainer = document.querySelector(".country__list");
@@ -86,6 +88,74 @@ class RenderCountry {
 
             turnoffview();
             changeview();
+            let selectedCountry = document.getElementById("row2").textContent;
+            const inputNumber = inputValue.value;
+            const AllSections = document.querySelector(".countries");
+            const CountryoNDashbords = AllSections.querySelectorAll("section");
+            if (CountryoNDashbords) {
+               const mainCountry = selectedCountry.slice(2);
+               CountryoNDashbords.forEach((element) => {
+                  let value = 0;
+                  let foundMain = false;
+                  let foundCountry = false;
+                  let addingValue;
+                  let valueSecondCountry;
+                  let calcValue;
+
+                  const paragraphs = element.querySelectorAll("p");
+
+                  if (paragraphs.length > 2) {
+                     const thirdParagraph = paragraphs[1];
+                     addingValue = thirdParagraph.textContent.slice(2);
+                  }
+
+                  valuesArr.forEach((element) => {
+                     if (foundMain) {
+                        return;
+                     }
+                     if (mainCountry === "PLN") {
+                        value = 1;
+                        foundMain = true;
+                     } else if (element.code === mainCountry) {
+                        value = element.mid;
+                        foundMain = true;
+                     }
+                  });
+
+                  valuesArr.forEach((element) => {
+                     if (foundCountry) {
+                        return;
+                     }
+                     if (addingValue === "PLN") {
+                        valueSecondCountry = 1;
+                        foundCountry = true;
+                     } else if (addingValue === element.code) {
+                        valueSecondCountry = element.mid;
+                        foundCountry = true;
+                     }
+                  });
+
+                  if (mainCountry === "PLN") {
+                     calcValue = (inputNumber / valueSecondCountry).toFixed(2);
+                  } else {
+                     calcValue = (
+                        (inputNumber * value) /
+                        valueSecondCountry
+                     ).toFixed(2);
+                  }
+
+                  if (paragraphs.length >= 4) {
+                     const thirdParagraph = paragraphs[3];
+                     const newValue = document.createElement("p");
+                     newValue.className = "country__row";
+                     newValue.textContent = `💲Value: ${calcValue}`;
+                     thirdParagraph.parentNode.replaceChild(
+                        newValue,
+                        thirdParagraph
+                     );
+                  }
+               });
+            }
 
             window.scrollTo({ top: 0, behavior: "instant" });
          }
