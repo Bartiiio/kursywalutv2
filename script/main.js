@@ -6,6 +6,7 @@ import InputChangeValue from "../script/InputChangeValue.js";
 const btnChange = document.querySelector(".btnChange");
 const btnAddCountry = document.querySelector(".add__country");
 export const inputValue = document.getElementById("input");
+const darkModeToggle = document.querySelector(".header__darkmode");
 
 let btnDelete;
 let inputSearch;
@@ -88,3 +89,20 @@ inputValue.addEventListener("input", () => {
    selectedCountry = document.getElementById("row2").textContent;
    InputChangeValue._inputLisenner();
 });
+
+function toggleDarkMode() {
+   const body = document.querySelector("body");
+   body.classList.toggle("dark-mode");
+
+   const icon = document.querySelector(".header__darkmode img");
+   const text = document.querySelector(".header__darkmode p");
+
+   if (body.classList.contains("dark-mode")) {
+      icon.src = "./images/dark.png";
+      text.textContent = "Light Mode";
+   } else {
+      icon.src = "./images/light.png";
+      text.textContent = "Dark Mode";
+   }
+}
+darkModeToggle.addEventListener("click", toggleDarkMode);
