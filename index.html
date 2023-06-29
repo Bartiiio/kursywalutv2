@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="viewport" , initial-scale=1.0, maximum-scale=1">
     <title>Informator walutowy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,45 +14,46 @@
 </head>
 
 <body>
-    <div class="select__country" style="display: none;">
-        <div class="search">
-            <img src="./images/search.png" alt="searchIcon" />
-            <input id="inputSearch" type="text" class="country__input" placeholder="Select Country" />
-            <button class="closeWindow">Zamknij okno</button>
-        </div>
-        <div class="country__list">
+    <div class="main">
+        <div class="select__country" style="display: none;">
+            <div class="search">
+                <img src="./images/search.png" alt="searchIcon" />
+                <input id="inputSearch" type="text" class="country__input" placeholder="Select Country" />
+                <button class="closeWindow">Zamknij okno</button>
+            </div>
+            <div class="country__list">
 
+            </div>
         </div>
-    </div>
-    <header class="header">
-        <div class="header__logo">
-            <img src="./images/bitcoin.jpg" alt="Logo">
-            <div class="header__text">Informator walutowy !</div>
+        <header class="header">
+            <div class="header__logo">
+                <img src="./images/bitcoin.jpg" alt="Logo">
+                <div class="header__text">Informator walutowy !</div>
+            </div>
+            <div class="header__darkmode">
+                <img src="./images/light.png" alt="Dark Mode" class="icon">
+                <p>Dark Mode</p>
+            </div>
+        </header>
+        <div class="main__valutes">
+            <div class="main">Wybrana waluta:</div>
+            <div class="country__data">
+                <img class="country__img" src="" alt="country flag" />
+                <h3 class="country__name">COUNTRY</h3>
+                <p class="country__row" id="row1"><span>🗣️</span>LANG</p>
+                <p class="country__row" id="row2"><span>💰</span>CUR</p>
+                <button class="btnChange">Zmień!</button>
+            </div>
         </div>
-        <div class="header__darkmode">
-            <img src="./images/light.png" alt="Dark Mode" class="icon">
-            <p>Dark Mode</p>
+        <div class="type__value">
+            <p>Ilość pieniędzy: </p>
+            <div class="value__input">
+                <img src="./images/magnifying-glass-solid.384bce35.png" alt="" />
+                <input id="input" value="1" type="number" class="value__input" min="1" />
+            </div>
         </div>
-    </header>
-    <div class="main__valutes">
-        <div class="main">Wybrana waluta:</div>
-        <div class="country__data">
-            <img class="country__img" src="" alt="country flag" />
-            <h3 class="country__name">COUNTRY</h3>
-            <p class="country__row" id="row1"><span>🗣️</span>LANG</p>
-            <p class="country__row" id="row2"><span>💰</span>CUR</p>
-            <button class="btnChange">Zmień!</button>
-        </div>
-    </div>
-    <div class="type__value">
-        <p>Ilość pieniędzy: </p>
-        <div class="value__input">
-            <img src="./images/magnifying-glass-solid.384bce35.png" alt="" />
-            <input id="input" value="1" type="number" class="value__input" min="1" />
-        </div>
-    </div>
-    <div class="countries">
-        <!-- <section class="countriesSection">
+        <div class="countries">
+            <!-- <section class="countriesSection">
             <img class="country__img" src="" />
             <div class="country__data">
                 <h3 class="country__name">COUNTRY</h3>
@@ -64,12 +65,13 @@
                 <p class="country__delete id=" deleteCountry"><span></span>Usuń!</p>
             </div>
         </section> -->
-        <div class="add__country">
-            <div class="plus">
-                <p>+</p>
-            </div>
-            <div class="country__data">
-                <h3 class="country__name">Dodaj kraj!</h3>
+            <div class="add__country">
+                <div class="plus">
+                    <p>+</p>
+                </div>
+                <div class="country__data">
+                    <h3 class="country__name">Dodaj kraj!</h3>
+                </div>
             </div>
         </div>
     </div>
