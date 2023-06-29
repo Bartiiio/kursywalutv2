@@ -64,6 +64,9 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      @media (max-width: 600px) {
+         align-content: flex-start;
+      }
       & section {
          background-color: royalblue;
          width: 30rem;
