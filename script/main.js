@@ -99,10 +99,10 @@ function toggleDarkMode() {
 
    if (body.classList.contains("dark-mode")) {
       icon.src = "./images/dark.png";
-      text.textContent = "Light Mode";
+      text.textContent = "Tryb jasny";
    } else {
       icon.src = "./images/light.png";
-      text.textContent = "Dark Mode";
+      text.textContent = "Tryb ciemny";
    }
 }
 darkModeToggle.addEventListener("click", toggleDarkMode);
