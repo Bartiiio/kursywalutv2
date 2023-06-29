@@ -4,7 +4,7 @@
    box-sizing: border-box;
    font-size: 8px;
    @media (max-width: 600px) {
-      font-size: 8px;
+      font-size: 5px;
    }
 }
 
@@ -21,6 +21,9 @@
       border: 1px solid black;
       padding: 1rem;
       border-radius: 10px;
+      @media (max-width: 600px) {
+         scale: 0.82;
+      }
       &:hover {
          background-color: gray;
          cursor: pointer;
@@ -35,6 +38,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      @media (max-width: 600px) {
+         width: 70rem;
+      }
       & img {
          width: 3rem;
          height: 3rem;
@@ -126,6 +132,9 @@
       padding: 0.5rem;
       font-weight: 600;
       margin-left: 1rem;
+      @media (max-width: 600px) {
+         font-size: 12px;
+      }
    }
    &__darkmode {
       display: flex;
@@ -151,10 +160,15 @@
    margin-top: 2.5rem;
    display: flex;
    align-items: center;
+   @media (max-width: 600px) {
+      width: 70rem;
+   }
    & .main {
       font-size: 3rem;
       padding: 1rem;
       margin-left: 2rem;
+      @media (max-width: 600px) {
+      }
    }
    & .country__data {
       display: flex;
@@ -193,6 +207,9 @@
          text-decoration: none;
          vertical-align: middle;
          width: 10rem;
+         @media (max-width: 600px) {
+            margin: 0;
+         }
       }
 
       button:hover {
@@ -209,6 +226,9 @@
    margin-top: 2.5rem;
    display: flex;
    align-items: center;
+   @media (max-width: 600px) {
+      width: 70rem;
+   }
    & p {
       font-size: 2.5rem;
       padding: 1rem;
@@ -221,6 +241,9 @@
       margin-left: 1rem;
       display: flex;
       align-items: center;
+      @media (max-width: 600px) {
+         width: 60%;
+      }
       & img {
          height: 3rem;
          width: 3rem;
@@ -245,6 +268,10 @@
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
+   @media (max-width: 600px) {
+      align-content: flex-start;
+   }
+
    & section {
       width: 30rem;
       height: 50rem;
