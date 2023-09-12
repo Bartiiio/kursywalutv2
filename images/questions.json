@@ -1,138 +1,138 @@
 {
   "questions": [
     {
-      "question": "Which is the most popular JavaScript framework?",
-      "options": ["Angular", "React", "Svelte", "Vue"],
-      "correctOption": 1,
-      "points": 10
-    },
-    {
-      "question": "Which company invented React?",
-      "options": ["Google", "Apple", "Netflix", "Facebook"],
+      "question": "Jaki kod ma silnik w BMW 340i F30 ?",
+      "options": ["N55", "S55", "N47", "B58"],
       "correctOption": 3,
       "points": 10
     },
     {
-      "question": "What's the fundamental building block of React apps?",
-      "options": ["Components", "Blocks", "Elements", "Effects"],
+      "question": "Silnik N47 ma pojemność:",
+      "options": ["2.0", "3.0", "4.0", "4.4"],
       "correctOption": 0,
       "points": 10
     },
     {
-      "question": "What's the name of the syntax we use to describe the UI in React components?",
-      "options": ["FBJ", "Babel", "JSX", "ES2015"],
+      "question": "BMW E90 to seria:",
+      "options": ["seria 1", "seria 3", "seria 4", "seria 7"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Pierwsze BMW M2 miało silnik:",
+      "options": ["N20", "N55", "S55", "B57"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Ile turbin ma BMW M550d F10 ?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "0"
+      ],
       "correctOption": 2,
       "points": 10
     },
     {
-      "question": "How does data flow naturally in React apps?",
+      "question": "Ile koni ma BMW M3 Competition G80 ?",
+      "options": ["410", "450", "510", "550"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "BMW M3 e92 posiadało silnik:",
       "options": [
-        "From parents to children",
-        "From children to parents",
-        "Both ways",
-        "The developers decides"
+        "4.0 V8",
+        "5.0 V10",
+        "3.0 R6",
+        "3.0 V6"
       ],
       "correctOption": 0,
-      "points": 10
-    },
-    {
-      "question": "How to pass data into a child component?",
-      "options": ["State", "Props", "PropTypes", "Parameters"],
-      "correctOption": 1,
-      "points": 10
-    },
-    {
-      "question": "When to use derived state?",
-      "options": [
-        "Whenever the state should not trigger a re-render",
-        "Whenever the state can be synchronized with an effect",
-        "Whenever the state should be accessible to all components",
-        "Whenever the state can be computed from another state variable"
-      ],
-      "correctOption": 3,
       "points": 30
     },
     {
-      "question": "What triggers a UI re-render in React?",
+      "question": "Jaką skrzynię ma BMW M4 Competition G82 ?",
       "options": [
-        "Running an effect",
-        "Passing props",
-        "Updating state",
-        "Adding event listeners to DOM elements"
+        "6HP",
+        "Manualną",
+        "8hp",
+        "DCT"
       ],
       "correctOption": 2,
       "points": 20
     },
     {
-      "question": "When do we directly \"touch\" the DOM in React?",
+      "question": "Ile biegów ma skrzynia 8hp ?",
       "options": [
-        "When we need to listen to an event",
-        "When we need to change the UI",
-        "When we need to add styles",
-        "Almost never"
+        "6",
+        "8",
+        "9",
+        "7"
       ],
-      "correctOption": 3,
+      "correctOption": 1,
       "points": 20
     },
     {
-      "question": "In what situation do we use a callback to update state?",
+      "question": "Ile koni ma nowe BMW M2 G87 ?",
       "options": [
-        "When updating the state will be slow",
-        "When the updated state is very data-intensive",
-        "When the state update should happen faster",
-        "When the new state depends on the previous state"
+        "450",
+        "550",
+        "510",
+        "460"
       ],
       "correctOption": 3,
       "points": 30
     },
     {
-      "question": "If we pass a function to useState, when will that function be called?",
+      "question": "Jaki silnik ma BMW 760i G70 ?",
       "options": [
-        "On each re-render",
-        "Each time we update the state",
-        "Only on the initial render",
-        "The first time we update the state"
-      ],
-      "correctOption": 2,
-      "points": 30
-    },
-    {
-      "question": "Which hook to use for an API request on the component's initial render?",
-      "options": ["useState", "useEffect", "useRef", "useReducer"],
-      "correctOption": 1,
-      "points": 10
-    },
-    {
-      "question": "Which variables should go into the useEffect dependency array?",
-      "options": [
-        "Usually none",
-        "All our state variables",
-        "All state and props referenced in the effect",
-        "All variables needed for clean up"
-      ],
-      "correctOption": 2,
-      "points": 30
-    },
-    {
-      "question": "An effect will always run on the initial render.",
-      "options": [
-        "True",
-        "It depends on the dependency array",
-        "False",
-        "In depends on the code in the effect"
+        "3.0 R6",
+        "4.4 V8",
+        "6.5 V12",
+        "5.0 V10"
       ],
       "correctOption": 0,
       "points": 30
     },
     {
-      "question": "When will an effect run if it doesn't have a dependency array?",
+      "question": "Gdzie występował silnik B58 ?",
+      "options": ["BMW 320d", "BMW 335i", "BMW 340i ", "BMW 340d"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "Ile koni miała pierwsza wersja silnika N55 ?",
       "options": [
-        "Only when the component mounts",
-        "Only when the component unmounts",
-        "The first time the component re-renders",
-        "Each time the component is re-rendered"
+        "340",
+        "326",
+        "306",
+        "367"
       ],
-      "correctOption": 3,
+      "correctOption": 2,
+      "points": 30
+    },
+    {
+      "question": "Ile turbin ma BMW M3 G80 ?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "0"
+      ],
+      "correctOption": 1,
+      "points": 30
+    },
+    {
+      "question": "Jaki silnik był w BMW 335i is ?",
+      "options": [
+        "N55",
+        "N54T",
+        "S55",
+        "S54"
+      ],
+      "correctOption": 1,
       "points": 20
     }
   ]
